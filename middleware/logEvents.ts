@@ -2,6 +2,7 @@ import fs from "fs";
 import { v4 } from "uuid";
 import path from "path";
 import { format } from "date-fns";
+import { Request, Response } from "express";
 
 const uuid = v4();
 const fsPromises = fs.promises;
@@ -23,7 +24,7 @@ const logEvents = async (message: string, logName: string) => {
   }
 };
 
-const logger = (req, res, next) => {
+const logger = (req: any, res: any, next: () => void) => {
   logEvents(`${req.method}\t${req.headers.origin}\t${req.url}`, `reqLog.txt`);
   console.log(`${req.methods} ${req.path} `);
   next();

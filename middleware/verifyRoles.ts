@@ -2,7 +2,7 @@ export interface ReqOptions {
   roles?: { role?: any }[];
 }
 
-const verifyRoles = (...allowedRoles) => {
+const verifyRoles = (...allowedRoles: any) => {
   return (
     req?: ReqOptions,
     res?: { sendStatus(status: number): void },

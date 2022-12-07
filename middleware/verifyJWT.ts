@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 
-const verifyJWT = (req, res, next) => {
+const verifyJWT = (req: any, res: any, next: () => void) => {
   const authHeader = req.headers["authorization"] || req.headers?.Authorization;
   if (!authHeader.startsWith("Bearer")) return res.sendStatus(401); ///unauthorised
   console.log(authHeader); // Bearer Token
@@ -9,7 +9,7 @@ const verifyJWT = (req, res, next) => {
   jwt.verify(
     token,
     process.env.ACCESS_TOKEN_SECRET as string,
-    (err, decoded) => {
+    (err: unknown, decoded: any) => {
       if (err)
         err instanceof Error &&
           res.status(403).json({ statue: "invalid", message: err.message }); // invalid token

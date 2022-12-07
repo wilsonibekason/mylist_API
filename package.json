@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node server.ts",
-    "dev": "nodemon server.ts"
+    "dev": "tsc -w & nodemon disk/server.js"
   },
   "repository": {
     "type": "git",

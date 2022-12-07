@@ -6,7 +6,12 @@ interface ErrOptions {
   stack: string;
 }
 
-const errorHandler = (err: ErrOptions, req, res, next) => {
+const errorHandler = (
+  err: ErrOptions,
+  req: any,
+  res: any,
+  next: () => void
+) => {
   logEvents(`${err.name}: ${err.message}`, `errLog.txt`);
   console.log(err.stack);
   res.status(500).send(err.message);

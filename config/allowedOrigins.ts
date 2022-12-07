@@ -1,3 +1,3 @@
-const allowedOrigins = [];
+const allowedOrigins: any = [];
 
 export { allowedOrigins };
